@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World - Reynold 的博客</title>
+    <title>我是如何用 VS Code 和 Kimi Code 搭建个人博客的 - Reynold 的博客</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -20,28 +20,98 @@
     <main>
         <article class="post">
             <header class="post-header">
-                <h1>Hello World - 我的第一篇博客</h1>
-                <p class="post-meta">2026年03月05日 | 分类: 随笔</p>
+                <h1>我是如何用 VS Code 和 Kimi Code 搭建个人博客的</h1>
+                <p class="post-meta">2026年03月05日 | 分类: 教程</p>
             </header>
             
             <div class="post-content">
-                <p>欢迎来到我的个人博客！这是我的第一篇文章。</p>
-                
-                <h2>为什么开始写博客</h2>
-                <p>记录学习过程，分享技术心得，与更多开发者交流。</p>
-                
-                <h2>未来计划</h2>
+                <p>大家好，我是 Reynold。今天想分享一下我是如何从零开始，用 <strong>VS Code</strong> 和 <strong>Kimi Code</strong> 搭建这个个人博客的完整过程。</p>
+
+                <h2>为什么选择这个方案</h2>
+                <p>在决定搭建博客之前，我对比了几种方案：</p>
+
+                <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                    <tr style="background: var(--primary-color); color: white;">
+                        <th style="padding: 10px; border: 1px solid #ddd;">方案</th>
+                        <th style="padding: 10px; border: 1px solid #ddd;">优点</th>
+                        <th style="padding: 10px; border: 1px solid #ddd;">缺点</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd;">WordPress</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">功能强大，插件丰富</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">需要服务器，维护成本高</td>
+                    </tr>
+                    <tr style="background: #f9f9f9;">
+                        <td style="padding: 10px; border: 1px solid #ddd;">Hexo/Hugo</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">静态生成，速度快</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">需要学习命令行操作</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd;">GitHub Pages + Jekyll</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">免费托管，原生支持</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">需要一定前端知识</td>
+                    </tr>
+                </table>
+
+                <p>最终选择了 <strong>GitHub Pages + Jekyll</strong>，因为：</p>
                 <ul>
-                    <li>分享技术文章</li>
-                    <li>记录项目经验</li>
-                    <li>总结学习笔记</li>
+                    <li>完全免费</li>
+                    <li>自动部署，push 即发布</li>
+                    <li>可以自定义域名</li>
                 </ul>
+
+                <h2>准备工作</h2>
                 
-                <p>感谢你的访问！</p>
+                <h3>1. 创建 GitHub 仓库</h3>
+                <p>首先，我在 GitHub 上创建了一个名为 <code>reynold321.github.io</code> 的仓库。这是 GitHub Pages 的特殊命名格式，可以直接通过 <code>https://reynold321.github.io</code> 访问。</p>
+
+                <h3>2. 克隆到本地</h3>
+                <pre style="background: #f4f4f4; padding: 15px; border-radius: 5px; overflow-x: auto;"><code>git clone https://github.com/reynoldli/reynold321.github.io.git</code></pre>
+
+                <h3>3. 安装 VS Code 插件</h3>
+                <p>为了让开发体验更好，我安装了几个必备插件：</p>
+                <ul>
+                    <li><strong>Live Server</strong> - 本地实时预览</li>
+                    <li><strong>Markdown All in One</strong> - Markdown 语法支持</li>
+                    <li><strong>GitLens</strong> - Git 版本控制增强</li>
+                </ul>
+
+                <h2>使用 Kimi Code 搭建</h2>
+                <p>这是整个过程中最省心的部分！我只需要告诉 Kimi Code 我的需求：</p>
+                <blockquote style="border-left: 4px solid var(--primary-color); padding-left: 20px; margin: 20px 0; color: var(--text-light);">
+                    "帮我创建一个博客网站，使用 GitHub Pages 托管"
+                </blockquote>
+                <p>Kimi Code 就自动帮我完成了所有配置和代码编写。</p>
+
+                <h2>自定义主题样式</h2>
+                <p>Kimi Code 为我设计了一个基于 CSS 变量的主题系统，这样我只需要修改几个颜色值，就能改变整个网站的主题风格。</p>
+
+                <h2>我的工作流程</h2>
+                <p>现在我的 blogging 工作流程非常顺畅：</p>
+                <ol>
+                    <li><strong>写文章</strong> - 在 <code>_posts/</code> 目录创建新的 Markdown 文件</li>
+                    <li><strong>本地预览</strong> - 用 Live Server 查看效果</li>
+                    <li><strong>调整样式</strong> - 修改 CSS 实时看到变化</li>
+                    <li><strong>发布</strong> - <code>git push</code> 到 GitHub，自动部署</li>
+                </ol>
+
+                <h2>总结</h2>
+                <p>用 VS Code + Kimi Code 搭建博客的体验非常棒：</p>
+                <ul>
+                    <li>✅ <strong>零配置</strong> - 不需要折腾复杂的环境</li>
+                    <li>✅ <strong>可视化</strong> - 实时预览，所见即所得</li>
+                    <li>✅ <strong>自动化</strong> - 自动部署，专注写作</li>
+                    <li>✅ <strong>可定制</strong> - 完全掌控网站样式</li>
+                </ul>
+                <p>如果你也想搭建个人博客，强烈推荐这个方案！</p>
+
+                <hr style="margin: 2rem 0; border: none; border-top: 1px solid var(--bg-color);">
+                <p>有任何问题欢迎在评论区留言，或者通过邮件联系我：<a href="mailto:reynold321@live.com">reynold321@live.com</a></p>
             </div>
             
             <nav class="post-nav">
                 <a href="index.html" class="prev">← 返回首页</a>
+                <a href="post-hello-world.html" class="next">Hello World - 我的第一篇博客 →</a>
             </nav>
         </article>
     </main>
