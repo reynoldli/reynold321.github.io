@@ -1,7 +1,6 @@
 ---
-layout: page
+layout: default
 title: 关于我
-permalink: /about/
 ---
 
 # 关于我
@@ -11,11 +10,12 @@ permalink: /about/
 ## 技能
 
 - 前端开发
-- 后端开发
+- 后端开发  
 - 开源贡献
 
 ## 联系方式
 
 - GitHub: [reynoldli](https://github.com/reynoldli)
+- 邮箱: reynold321@live.com
 
 欢迎与我交流！
