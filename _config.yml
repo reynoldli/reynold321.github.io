@@ -1,0 +1,25 @@
+title: Reynold 的博客
+description: 分享技术、生活与思考
+author: Reynold
+email: your-email@example.com
+
+# Jekyll 配置
+theme: minima
+baseurl: ""
+url: "https://reynold321.github.io"
+
+# 社交媒体
+github_username: reynoldli
+
+# 分页
+paginate: 5
+paginate_path: "/page:num/"
+
+# 插件
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+
+# 其他设置
+markdown: kramdown
+highlighter: rouge
