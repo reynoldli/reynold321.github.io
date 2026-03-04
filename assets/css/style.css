@@ -1,4 +1,33 @@
-/* 基础样式重置 */
+/* ==================== 主题颜色配置 ==================== */
+/* 修改这里的颜色值来调整整个网站的主题 */
+
+:root {
+    /* 主色调 - 导航栏渐变 */
+    --primary-color: #667eea;      /* 渐变起始色 */
+    --secondary-color: #764ba2;    /* 渐变结束色 */
+    
+    /* 背景色 */
+    --bg-color: #f5f5f5;           /* 页面背景 */
+    --card-bg: #ffffff;            /* 卡片背景 */
+    --footer-bg: #333333;          /* 页脚背景 */
+    
+    /* 文字颜色 */
+    --text-color: #333333;         /* 正文文字 */
+    --text-light: #666666;         /* 次要文字 */
+    --text-muted: #999999;         /* 辅助文字（日期等） */
+    --text-white: #ffffff;         /* 深色背景上的文字 */
+    
+    /* 链接颜色 */
+    --link-color: #667eea;         /* 链接颜色 */
+    --link-hover: #764ba2;         /* 链接悬停颜色 */
+    
+    /* 阴影 */
+    --shadow-sm: 0 2px 10px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.05);
+    --shadow-lg: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* ==================== 基础样式 ==================== */
 * {
     margin: 0;
     padding: 0;
@@ -8,16 +37,16 @@
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #f5f5f5;
+    color: var(--text-color);
+    background-color: var(--bg-color);
 }
 
-/* 头部导航 */
+/* ==================== 头部导航 ==================== */
 header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: var(--text-white);
     padding: 1rem 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow-sm);
 }
 
 nav {
@@ -32,7 +61,7 @@ nav {
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
-    color: white;
+    color: var(--text-white);
     text-decoration: none;
 }
 
@@ -43,7 +72,7 @@ nav ul {
 }
 
 nav a {
-    color: white;
+    color: var(--text-white);
     text-decoration: none;
     transition: opacity 0.3s;
 }
@@ -52,7 +81,7 @@ nav a:hover {
     opacity: 0.8;
 }
 
-/* 主内容区 */
+/* ==================== 主内容区 ==================== */
 main {
     max-width: 1200px;
     margin: 2rem auto;
@@ -60,23 +89,44 @@ main {
     min-height: 60vh;
 }
 
-/* 文章卡片 */
+/* Hero 区域 */
+.hero {
+    text-align: center;
+    padding: 3rem 0;
+    margin-bottom: 2rem;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--text-light);
+}
+
+/* ==================== 文章卡片 ==================== */
 .post-list {
     display: grid;
     gap: 2rem;
 }
 
 .post-card {
-    background: white;
+    background: var(--card-bg);
     padding: 2rem;
     border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    box-shadow: var(--shadow-md);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .post-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow-lg);
 }
 
 .post-card h2 {
@@ -84,26 +134,79 @@ main {
 }
 
 .post-card h2 a {
-    color: #667eea;
+    color: var(--link-color);
     text-decoration: none;
+    transition: color 0.3s;
+}
+
+.post-card h2 a:hover {
+    color: var(--link-hover);
 }
 
 .post-meta {
-    color: #999;
+    color: var(--text-muted);
     font-size: 0.9rem;
     margin-bottom: 1rem;
 }
 
-/* 页脚 */
+/* ==================== 文章页面 ==================== */
+.post-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--bg-color);
+}
+
+.post-header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.post-content {
+    line-height: 1.8;
+}
+
+.post-content h2 {
+    margin: 2rem 0 1rem;
+    color: var(--primary-color);
+}
+
+.post-content p {
+    margin-bottom: 1rem;
+}
+
+.post-content ul {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+.post-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--bg-color);
+}
+
+.post-nav a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+.post-nav a:hover {
+    color: var(--link-hover);
+}
+
+/* ==================== 页脚 ==================== */
 footer {
-    background: #333;
-    color: white;
+    background: var(--footer-bg);
+    color: var(--text-white);
     text-align: center;
     padding: 2rem;
     margin-top: 4rem;
 }
 
-/* 响应式设计 */
+/* ==================== 响应式设计 ==================== */
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
@@ -112,5 +215,9 @@ footer {
     
     nav ul {
         gap: 1rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
     }
 }
