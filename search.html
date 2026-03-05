@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索 - Reynold 的博客</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Reynold 的博客</a>
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="categories.html">分类</a></li>
+                <li><a href="tags.html">标签</a></li>
+                <li><a href="search.html">搜索</a></li>
+                <li><a href="about.html">关于</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="hero">
+            <h1>搜索文章</h1>
+            <p>输入关键词查找感兴趣的内容</p>
+        </div>
+
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="输入关键词搜索..." class="search-input">
+            <button onclick="searchPosts()" class="search-btn">搜索</button>
+        </div>
+
+        <div id="searchResults" class="search-results">
+            <p class="search-hint">输入关键词开始搜索...</p>
+        </div>
+
+        <div class="popular-searches">
+            <h3>热门搜索</h3>
+            <div class="popular-tags">
+                <a href="#" onclick="quickSearch('VS Code')">VS Code</a>
+                <a href="#" onclick="quickSearch('Kimi Code')">Kimi Code</a>
+                <a href="#" onclick="quickSearch('博客')">博客</a>
+                <a href="#" onclick="quickSearch('教程')">教程</a>
+                <a href="#" onclick="quickSearch('GitHub')">GitHub</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Reynold. All rights reserved.</p>
+        <p><a href="rss.xml" class="rss-link">RSS 订阅</a></p>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        // 文章数据
+        const posts = [
+            {
+                title: "我是如何用 VS Code 和 Kimi Code 搭建个人博客的",
+                url: "post.html",
+                date: "2026年03月05日",
+                category: "教程",
+                tags: ["VS Code", "Kimi Code", "博客搭建", "GitHub"],
+                summary: "分享我使用 VS Code 和 Kimi Code 从零搭建个人博客的完整过程，包括环境配置、主题定制和工作流程。"
+            },
+            {
+                title: "Hello World - 我的第一篇博客",
+                url: "post-hello-world.html",
+                date: "2026年03月05日",
+                category: "随笔",
+                tags: ["随笔", "生活"],
+                summary: "欢迎来到我的个人博客！这是我的第一篇文章。"
+            }
+        ];
+
+        function searchPosts() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            const resultsDiv = document.getElementById('searchResults');
+            
+            if (!query) {
+                resultsDiv.innerHTML = '<p class="search-hint">请输入搜索关键词</p>';
+                return;
+            }
+            
+            const results = posts.filter(post => 
+                post.title.toLowerCase().includes(query) ||
+                post.summary.toLowerCase().includes(query) ||
+                post.tags.some(tag => tag.toLowerCase().includes(query))
+            );
+            
+            if (results.length === 0) {
+                resultsDiv.innerHTML = '<p class="no-results">没有找到相关文章，试试其他关键词？</p>';
+            } else {
+                resultsDiv.innerHTML = results.map(post => `
+                    <article class="search-result-item">
+                        <h3><a href="${post.url}">${post.title}</a></h3>
+                        <p class="post-meta">${post.date} | 分类: ${post.category}</p>
+                        <p>${post.summary}</p>
+                        <div class="tags">${post.tags.map(tag => `<span class="tag">#${tag}</span>`).join(' ')}</div>
+                    </article>
+                `).join('');
+            }
+        }
+
+        function quickSearch(keyword) {
+            document.getElementById('searchInput').value = keyword;
+            searchPosts();
+        }
+
+        // 回车搜索
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') searchPosts();
+        });
+    </script>
+</body>
+</html>

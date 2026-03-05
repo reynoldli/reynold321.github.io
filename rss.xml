@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+    <title>Reynold 的博客</title>
+    <link>https://reynoldli.github.io</link>
+    <description>分享技术学习、项目经验和生活感悟</description>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 05 Mar 2026 08:00:00 +0800</lastBuildDate>
+    <atom:link href="https://reynoldli.github.io/rss.xml" rel="self" type="application/rss+xml"/>
+    
+    <item>
+        <title>我是如何用 VS Code 和 Kimi Code 搭建个人博客的</title>
+        <link>https://reynoldli.github.io/post.html</link>
+        <guid isPermaLink="true">https://reynoldli.github.io/post.html</guid>
+        <pubDate>Thu, 05 Mar 2026 08:00:00 +0800</pubDate>
+        <category>教程</category>
+        <description><![CDATA[分享我使用 VS Code 和 Kimi Code 从零搭建个人博客的完整过程，包括环境配置、主题定制和工作流程。]]></description>
+    </item>
+    
+    <item>
+        <title>Hello World - 我的第一篇博客</title>
+        <link>https://reynoldli.github.io/post-hello-world.html</link>
+        <guid isPermaLink="true">https://reynoldli.github.io/post-hello-world.html</guid>
+        <pubDate>Thu, 05 Mar 2026 08:00:00 +0800</pubDate>
+        <category>随笔</category>
+        <description><![CDATA[欢迎来到我的个人博客！这是我的第一篇文章。]]></description>
+    </item>
+</channel>
+</rss>

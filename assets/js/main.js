@@ -1,29 +1,58 @@
-// 主要交互功能
+// 主题切换功能
+const themeToggle = document.createElement('button');
+themeToggle.id = 'theme-toggle';
+themeToggle.innerHTML = '🌙';
+themeToggle.title = '切换主题';
 
-// 页面加载动画
+// 检查本地存储的主题偏好
+const currentTheme = localStorage.getItem('theme') || 'light';
+if (currentTheme === 'dark') {
+    document.body.classList.add('dark-theme');
+    themeToggle.innerHTML = '☀️';
+}
+
+// 添加切换按钮到导航栏
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('网站已加载！');
+    const nav = document.querySelector('nav');
+    if (nav) {
+        nav.appendChild(themeToggle);
+    }
     
-    // 为所有链接添加平滑滚动
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
+    // 绑定点击事件
+    themeToggle.addEventListener('click', function() {
+        document.body.classList.toggle('dark-theme');
+        
+        if (document.body.classList.contains('dark-theme')) {
+            localStorage.setItem('theme', 'dark');
+            themeToggle.innerHTML = '☀️';
+        } else {
+            localStorage.setItem('theme', 'light');
+            themeToggle.innerHTML = '🌙';
+        }
     });
 });
 
-// 导航栏滚动效果
-window.addEventListener('scroll', function() {
-    const header = document.querySelector('header');
-    if (window.scrollY > 100) {
-        header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.2)';
-    } else {
-        header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+// 搜索功能（如果在搜索页面）
+function initSearch() {
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchPosts();
+            }
+        });
     }
+}
+
+// 代码高亮初始化
+function initCodeHighlight() {
+    if (typeof Prism !== 'undefined') {
+        Prism.highlightAll();
+    }
+}
+
+// 页面加载完成后初始化
+document.addEventListener('DOMContentLoaded', function() {
+    initSearch();
+    initCodeHighlight();
 });
