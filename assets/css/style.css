@@ -557,9 +557,62 @@ code {
     border-radius: 4px;
 }
 
-/* ==================== Gitalk 评论 ==================== */
-#gitalk-container {
+.category-desc {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin: 0.5rem 0 1rem;
+}
+
+.category-highlight {
+    border: 2px solid var(--primary-color);
+    background: linear-gradient(135deg, var(--card-bg) 0%, rgba(102, 126, 234, 0.05) 100%);
+}
+
+.category-intro {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-md);
+}
+
+.category-intro h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.sub-categories {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.sub-tag {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    background: rgba(102, 126, 234, 0.1);
+    color: var(--primary-color);
+    border-radius: 15px;
+    font-size: 0.85rem;
+}
+
+.category-nav {
     margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--bg-color);
+    text-align: center;
+}
+
+.category-link {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.category-link:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
 }
